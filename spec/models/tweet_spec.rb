@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: tweets
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer          not null
+#  text_body  :string(255)      not null
+#  created_at :datetime
+#  updated_at :datetime
+#  tweeted_at :datetime         not null
+#  url        :string(255)      not null
+#
+
 
 require 'rails_helper'
 
