@@ -2,7 +2,7 @@ class CreateTweets < ActiveRecord::Migration
   def change
     create_table :tweets do |t|
       t.integer :user, null: false
-      t.string :text_body
+      t.string :text_body, null: false
       t.timestamps
     end
 
