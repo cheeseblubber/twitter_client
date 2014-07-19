@@ -13,7 +13,7 @@ gem 'annotate'
 gem 'twitter'
 gem 'figaro'
 gem 'backbone-on-rails'
-
+gem 'rails_12factor', group: :production
 gem 'spring',        group: :development
 
 group :development do
