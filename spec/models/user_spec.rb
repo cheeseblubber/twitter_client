@@ -24,4 +24,11 @@ RSpec.describe User, :type => :model do
       expect(build(:user, url: nil)).not_to be_valid
     end
   end
+
+  # describe "#recent_tweets" do
+  #   it "should return twenty most recent tweets" do
+  #     expect(user.recent_tweets).to match_array(expected_array)
+  #   end
+  # end
+
 end
