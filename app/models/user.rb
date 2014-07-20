@@ -7,7 +7,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  url        :string(255)      not null
-#
+
 require 'twitter'
 class User < ActiveRecord::Base
   validates :name, :url, presence: true
@@ -36,7 +36,8 @@ class User < ActiveRecord::Base
   def self.parse_tweet(tweet)
     url = tweet.url.to_s
     text = tweet.full_text
-    Tweet.new(url: url, text_body: text)
+    tweeted_at = tweet.created_at
+    Tweet.new(url: url, text_body: text, tweeted_at: tweeted_at)
   end
 
   private

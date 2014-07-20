@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
-    User.fetch_recent_tweets
+    tweets = User.recent_tweets(params[:id])
+    render json: tweets.to_json
   end
 
   private
