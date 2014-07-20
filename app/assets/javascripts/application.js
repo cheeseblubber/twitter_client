@@ -12,6 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.serializejson.min
 //= require turbolinks
-//= require twitter_client.js
+//= require bootstrap
+//= require underscore
+//= require backbone
+//= require twitter_client
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ../templates
+//= require_tree ./views
+//= require_tree ./routers
+
 //= require_tree .

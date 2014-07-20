@@ -4,8 +4,10 @@ window.Twitter_client = {
   Views: {},
   Routers: {},
   initialize: function() {
-    var $rootEl = $('#content')
-    var router = new Twitter_client.Routers.Router($rootEl);
+    var router = new Twitter_client.Routers.Router({
+     $rootEl: $('#content')
+    });
     Backbone.history.start();
   }
 }
+$(Twitter_client.initialize);
