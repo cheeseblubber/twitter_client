@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root to: "users/elonmusk"
+  root to: "users#show"
   resources :users
 end
