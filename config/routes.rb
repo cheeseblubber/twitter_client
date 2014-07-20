@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  root to: "users#show"
-  resources :users
+  root "app#root"
+  namespace :api, defaults: {format: 'json'}  do
+    get 'users/:name' => 'users#show'
+  end
 end
