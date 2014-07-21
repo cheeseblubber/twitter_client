@@ -5,7 +5,8 @@ Twitter_client.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "root",
-    "tweets": "tweets",
+    "tweets": "tweetsForm",
+    "tweets/:user": "recentTweets",
     "mutualFollows": "mutualFollows"
   },
 
@@ -14,15 +15,39 @@ Twitter_client.Routers.Router = Backbone.Router.extend({
     this._swapView(rootView);
   },
 
-  tweets: function () {
-    var tweetsView = new Twitter_client.Views.userTweetsView();
+  tweetsForm: function () {
+    var tweetsView = new Twitter_client.Views.userFormView();
     this._swapView(tweetsView);
   },
 
-  mutualFollows: function (){
-    var mutualFollowsView = new Twitter_client.Views.mutualFollowsView();
-    this._swapView(mutualFollowsView);
+  recentTweets: function (username) {
+    // fetch users
+    var user = new Twitter_client.Models.User({
+      username: username
+    })
+    var that = this
+    user.fetch({
+      success: function (response){
+        var tweets = response.attributes
+        var recentTweetsView = new Twitter_client.Views.recentTweetsView({
+          username: username,
+          tweets: tweets,
+        })
+        that._swapView(recentTweetsView)
+      },
+      error: function () {
+        console.log("It didn't work")
+      },
+      wait: true
+    })
+
+
   },
+
+  // mutualFollows: function (){
+  //   var mutualFollowsView = new Twitter_client.Views.mutualFollowsView();
+  //   this._swapView(mutualFollowsView);
+  // },
 
   _swapView: function (view) {
     if (this._currentView) {

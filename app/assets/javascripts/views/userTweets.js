@@ -1,30 +1,18 @@
-Twitter_client.Views.userTweetsView = Backbone.View.extend({
-  template: JST["userTweets"],
+Twitter_client.Views.recentTweetsView = Backbone.View.extend({
 
-  events: {
-    'submit form': 'recentTweets'
+  initialize: function (options) {
+    this.tweets = options.tweets
   },
+
+  template: JST["tweet/userTweets"],
 
   render: function () {
-    var renderedContent = this.template()
+    var renderedContent = this.template({
+      tweets: this.tweets
+      // user: this.user
+    });
     this.$el.html(renderedContent);
     return this;
-  },
-
-  recentTweets: function () {
-    event.preventDefault();
-    var username = $(event.target).serializeJSON().user.name
-    var user = new Twitter_client.Models.User({
-      "username": username
-    })
-    user.fetch({
-      success: function (response) {
-        var tweets = response.attributes
-        debugger
-      },
-      error: function () {
-        console.log("awww")
-      }
-    })
   }
+
 })
