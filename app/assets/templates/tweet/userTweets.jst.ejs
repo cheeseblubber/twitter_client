@@ -1,8 +1,10 @@
-This is the Tweets Template
+<a href='http://twitter.com/<%= username %>'><%= username %></a>
 <ul>
 <% _.each(tweets, function(tweet){ %>
-
-  <li><%= tweet.text_body %></li>
-
+  <li>
+    <div class="tweet">
+      <a href='<%= tweet.url %>'><%= tweet.text_body %></a>
+    </div>
+  </li>
 <% }) %>
 </ul>

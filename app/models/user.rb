@@ -40,6 +40,10 @@ class User < ActiveRecord::Base
     Tweet.new(url: url, text_body: text, tweeted_at: tweeted_at)
   end
 
+  def self.mutual_follows(username_one, username_two)
+    
+  end
+
   private
 
   def self.twitter_client
